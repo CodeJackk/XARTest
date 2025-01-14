@@ -15,6 +15,16 @@ public class GenerateModel : MonoBehaviour
     [SerializeField]
     float sphereRadius = 1f;
 
+    [Header("Cone attributes")]
+    [SerializeField]
+    bool generateCone = false;
+    [SerializeField]
+    float coneHeight = 1f;
+    [SerializeField]
+    float coneRadius = 0.5f;
+    [SerializeField]
+    int coneSegments = 10;
+
     void Start()
     {
         meshFilter = gameObject.AddComponent<MeshFilter>();
@@ -26,6 +36,8 @@ public class GenerateModel : MonoBehaviour
     {
         
     }
+
+  
 
     Mesh GenerateSphere()
     {
@@ -64,6 +76,40 @@ public class GenerateModel : MonoBehaviour
                     tris.Add(next);
                     tris.Add(next + 1);
                 }
+            }
+        }
+
+        if (generateCone)
+        {
+            //front point of the sphere
+            Vector3 sphereFront = new Vector3(0, 0, sphereRadius);
+
+            // Generate Cone Base Vertices
+            int coneBaseStartIndex = verts.Count;
+            for (int i = 0; i < coneSegments; i++)
+            {
+                float angle = 2 * Mathf.PI * i / coneSegments;
+                float x = coneRadius * Mathf.Cos(angle);
+                float y = coneRadius * Mathf.Sin(angle);
+                float z = sphereRadius; //Touching sphere
+                verts.Add(new Vector3(x, y, z));
+                normals.Add(new Vector3(x, y, 0).normalized);
+            }
+
+            // Cone Tip Vertex
+            Vector3 coneTip = sphereFront + new Vector3(0, 0, coneHeight);
+            verts.Add(coneTip);
+            normals.Add((coneTip - sphereFront).normalized);
+
+            // Cone Base Triangles
+            for (int i = 0; i < coneSegments; i++)
+            {
+                int current = coneBaseStartIndex + i;
+                int next = coneBaseStartIndex + (i + 1) % coneSegments;
+
+                tris.Add(verts.Count - 1);
+                tris.Add(next);
+                tris.Add(current);
             }
         }
 
