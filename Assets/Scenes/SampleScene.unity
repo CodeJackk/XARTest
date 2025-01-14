@@ -426,6 +426,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1343562000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1055561482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055561484}
+  - component: {fileID: 1055561483}
+  - component: {fileID: 1055561485}
+  m_Layer: 0
+  m_Name: SphereConeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1055561483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055561482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee5adda21b9758499904d559efa031a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereSegments: 20
+  sphereRings: 10
+  sphereRadius: 1
+  generateCone: 1
+  coneHeight: 1
+  coneRadius: 0.5
+  coneSegments: 10
+--- !u!4 &1055561484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055561482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055561485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055561482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf962d3d61c6e94eb0ba2f263fb2b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: {x: 3, y: 3, z: 3}
+  frequency: {x: 2, y: 2, z: 2}
+  phases: {x: 0, y: 3.1415927, z: 1.5707964}
+  speed: 0.3
+  enableRotation: 1
+  target: {fileID: 1333956805}
+  angularSpeed: 90
 --- !u!1 &1333956803
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333956805}
   - component: {fileID: 1333956804}
+  - component: {fileID: 1333956806}
   m_Layer: 0
   m_Name: SphereSpawner
   m_TagString: Untagged
@@ -455,7 +527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee5adda21b9758499904d559efa031a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereSegments: 10
+  sphereSegments: 20
+  sphereRings: 10
+  sphereRadius: 1
+  generateCone: 0
+  coneHeight: 1
+  coneRadius: 0.5
+  coneSegments: 10
 --- !u!4 &1333956805
 Transform:
   m_ObjectHideFlags: 0
@@ -465,12 +543,31 @@ Transform:
   m_GameObject: {fileID: 1333956803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333956806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333956803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf962d3d61c6e94eb0ba2f263fb2b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: {x: 5, y: 5, z: 5}
+  frequency: {x: 1, y: 1, z: 1}
+  phases: {x: 0, y: 3.1415927, z: 1.5707964}
+  speed: 1
+  enableRotation: 0
+  target: {fileID: 0}
+  angularSpeed: 90
 --- !u!1 &1343561999
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,4 +607,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1333956805}
+  - {fileID: 1055561484}
   - {fileID: 1343562000}
