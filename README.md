@@ -52,3 +52,9 @@ Simply press play, no setup needed. You can adjust the parameters below.
 - **Perlin Noise (vertex):**
   - Smoothed Perlin noise applied in the direction of the sphere normals to create an organic blob effect.
 - Additional metallic and reflection calculations added for visual enhancement.
+
+### Video example
+
+(or see example_video in /readmefiles)
+
+[![Video](https://img.youtube.com/vi/508xsazTxxo/0.jpg)](https://www.youtube.com/watch?v=508xsazTxxo)
