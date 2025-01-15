@@ -27,6 +27,9 @@ Simply press play, no setup needed. You can adjust the parameters below.
 - Programmatically generates a sphere mesh with the option of a cone mesh generated on the sphere's forward axis.
 - Several parameters are available to change regarding size and mesh resolution.
 
+![Model](readmefiles/generateModel.png)
+
+
 ### Lissajous Animation & Rotation
 
 **`LissajousAnimator.cs`**
@@ -36,6 +39,8 @@ Simply press play, no setup needed. You can adjust the parameters below.
   - Phase
 - Points Object A towards Object B by modifying the look-at vector.
 - Angular speed can be adjusted to vary how quickly it points towards Object B's position.
+
+![Lissajous](readmefiles/lissajousScript.png)
 
 ### Colour Change & Perlin
 
