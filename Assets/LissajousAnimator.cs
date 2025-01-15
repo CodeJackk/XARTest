@@ -19,16 +19,18 @@ public class LissajousAnimator : MonoBehaviour
     Transform target; //Target object
     [SerializeField]
     float angularSpeed = 90f; //degree/s
-    
+    private Material material; // Material with the shader
 
     private Vector3 startingPosition;
     private float time;
 
     Vector3 offset = new(0f,0f,0f);
+
     void Start()
     {
         // Store the initial position of the object
         startingPosition = transform.position;
+       
     }
 
     void Update()
@@ -45,10 +47,15 @@ public class LissajousAnimator : MonoBehaviour
         transform.position = startingPosition + offset;
 
         //rotate towards target
-        if (enableRotation && !target)
+        if (enableRotation && target)
         {
             RotateTowardsTarget();
         }
+
+        if (target != null)
+        {
+            gameObject.GetComponent<Renderer>().sharedMaterial.SetVector("_TargetObject", new Vector4(target.position.x, target.position.y, target.position.z, 1.0f));
+        }  
     }
 
     void RotateTowardsTarget()

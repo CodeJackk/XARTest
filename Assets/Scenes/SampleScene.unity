@@ -456,13 +456,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee5adda21b9758499904d559efa031a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereSegments: 20
-  sphereRings: 10
+  sphereSegments: 30
+  sphereRings: 20
   sphereRadius: 1
   generateCone: 1
-  coneHeight: 1
-  coneRadius: 0.5
+  coneHeight: 2
+  coneRadius: 0.8
   coneSegments: 10
+  materialTemplate: {fileID: 2100000, guid: 570999d686d3a604a96a5ad4e9590544, type: 2}
 --- !u!4 &1055561484
 Transform:
   m_ObjectHideFlags: 0
@@ -496,7 +497,7 @@ MonoBehaviour:
   speed: 0.3
   enableRotation: 1
   target: {fileID: 1333956805}
-  angularSpeed: 90
+  angularSpeed: 60
 --- !u!1 &1333956803
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +535,7 @@ MonoBehaviour:
   coneHeight: 1
   coneRadius: 0.5
   coneSegments: 10
+  materialTemplate: {fileID: 0}
 --- !u!4 &1333956805
 Transform:
   m_ObjectHideFlags: 0

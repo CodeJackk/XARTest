@@ -25,11 +25,17 @@ public class GenerateModel : MonoBehaviour
     [SerializeField]
     int coneSegments = 10;
 
+    [Header("Materials")]
+    [SerializeField]
+    Material materialTemplate;
+
+
     void Start()
     {
         meshFilter = gameObject.AddComponent<MeshFilter>();
         meshRenderer = gameObject.AddComponent<MeshRenderer>();
         meshFilter.mesh = GenerateSphere();
+        meshRenderer.sharedMaterial = materialTemplate;
     }
 
     void Update()
